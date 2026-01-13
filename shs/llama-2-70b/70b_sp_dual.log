@@ -1,0 +1,929 @@
+nohup: ignoring input
+2025-04-21 15:43:14.536538: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F AVX512_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-04-21 15:43:14.822431: I tensorflow/core/util/port.cc:104] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-04-21 15:43:14.830124: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-12.3/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-21 15:43:14.830167: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2025-04-21 15:43:22.329080: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-12.3/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-21 15:43:22.330000: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-12.3/lib64:/usr/local/nvidia/lib:/usr/local/nvidia/lib64
+2025-04-21 15:43:22.330052: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+torch 2.3.1+cu121
+transformers 4.47.1
+accelerate 0.29.1
+# of gpus:  8
+loading llm model /h3cstore_ns/jcxie/hf_weights/llama-2-70b-hf
+Loading checkpoint shards:   0%|          | 0/29 [00:00<?, ?it/s]Loading checkpoint shards:   3%|▎         | 1/29 [00:01<00:36,  1.30s/it]Loading checkpoint shards:   7%|▋         | 2/29 [00:02<00:31,  1.18s/it]Loading checkpoint shards:  10%|█         | 3/29 [00:03<00:26,  1.00s/it]Loading checkpoint shards:  14%|█▍        | 4/29 [00:03<00:23,  1.09it/s]Loading checkpoint shards:  17%|█▋        | 5/29 [00:04<00:20,  1.18it/s]Loading checkpoint shards:  21%|██        | 6/29 [00:05<00:18,  1.24it/s]Loading checkpoint shards:  24%|██▍       | 7/29 [00:06<00:16,  1.30it/s]Loading checkpoint shards:  28%|██▊       | 8/29 [00:06<00:15,  1.32it/s]Loading checkpoint shards:  31%|███       | 9/29 [00:07<00:14,  1.35it/s]Loading checkpoint shards:  34%|███▍      | 10/29 [00:08<00:13,  1.39it/s]Loading checkpoint shards:  38%|███▊      | 11/29 [00:08<00:12,  1.43it/s]Loading checkpoint shards:  41%|████▏     | 12/29 [00:09<00:11,  1.46it/s]Loading checkpoint shards:  45%|████▍     | 13/29 [00:10<00:10,  1.46it/s]Loading checkpoint shards:  48%|████▊     | 14/29 [00:10<00:10,  1.47it/s]Loading checkpoint shards:  52%|█████▏    | 15/29 [00:11<00:09,  1.48it/s]Loading checkpoint shards:  55%|█████▌    | 16/29 [00:12<00:08,  1.49it/s]Loading checkpoint shards:  59%|█████▊    | 17/29 [00:12<00:07,  1.50it/s]Loading checkpoint shards:  62%|██████▏   | 18/29 [00:13<00:07,  1.55it/s]Loading checkpoint shards:  66%|██████▌   | 19/29 [00:14<00:06,  1.51it/s]Loading checkpoint shards:  69%|██████▉   | 20/29 [00:14<00:06,  1.45it/s]Loading checkpoint shards:  72%|███████▏  | 21/29 [00:15<00:05,  1.42it/s]Loading checkpoint shards:  76%|███████▌  | 22/29 [00:16<00:05,  1.40it/s]Loading checkpoint shards:  79%|███████▉  | 23/29 [00:17<00:04,  1.36it/s]Loading checkpoint shards:  83%|████████▎ | 24/29 [00:17<00:03,  1.41it/s]Loading checkpoint shards:  86%|████████▌ | 25/29 [00:18<00:02,  1.46it/s]Loading checkpoint shards:  90%|████████▉ | 26/29 [00:19<00:02,  1.44it/s]Loading checkpoint shards:  93%|█████████▎| 27/29 [00:19<00:01,  1.48it/s]Loading checkpoint shards:  97%|█████████▋| 28/29 [00:20<00:00,  1.24it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:21<00:00,  1.37it/s]Loading checkpoint shards: 100%|██████████| 29/29 [00:21<00:00,  1.35it/s]
+normalizer.cc(51) LOG(INFO) precompiled_charsmap is empty. use identity normalization.
+model.embed_tokens.weight torch.Size([32000, 8192])
+model.layers.0.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.0.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.0.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.0.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.0.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.0.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.0.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.0.input_layernorm.weight torch.Size([8192])
+model.layers.0.post_attention_layernorm.weight torch.Size([8192])
+model.layers.1.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.1.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.1.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.1.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.1.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.1.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.1.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.1.input_layernorm.weight torch.Size([8192])
+model.layers.1.post_attention_layernorm.weight torch.Size([8192])
+model.layers.2.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.2.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.2.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.2.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.2.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.2.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.2.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.2.input_layernorm.weight torch.Size([8192])
+model.layers.2.post_attention_layernorm.weight torch.Size([8192])
+model.layers.3.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.3.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.3.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.3.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.3.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.3.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.3.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.3.input_layernorm.weight torch.Size([8192])
+model.layers.3.post_attention_layernorm.weight torch.Size([8192])
+model.layers.4.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.4.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.4.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.4.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.4.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.4.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.4.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.4.input_layernorm.weight torch.Size([8192])
+model.layers.4.post_attention_layernorm.weight torch.Size([8192])
+model.layers.5.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.5.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.5.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.5.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.5.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.5.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.5.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.5.input_layernorm.weight torch.Size([8192])
+model.layers.5.post_attention_layernorm.weight torch.Size([8192])
+model.layers.6.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.6.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.6.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.6.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.6.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.6.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.6.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.6.input_layernorm.weight torch.Size([8192])
+model.layers.6.post_attention_layernorm.weight torch.Size([8192])
+model.layers.7.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.7.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.7.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.7.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.7.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.7.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.7.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.7.input_layernorm.weight torch.Size([8192])
+model.layers.7.post_attention_layernorm.weight torch.Size([8192])
+model.layers.8.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.8.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.8.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.8.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.8.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.8.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.8.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.8.input_layernorm.weight torch.Size([8192])
+model.layers.8.post_attention_layernorm.weight torch.Size([8192])
+model.layers.9.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.9.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.9.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.9.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.9.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.9.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.9.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.9.input_layernorm.weight torch.Size([8192])
+model.layers.9.post_attention_layernorm.weight torch.Size([8192])
+model.layers.10.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.10.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.10.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.10.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.10.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.10.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.10.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.10.input_layernorm.weight torch.Size([8192])
+model.layers.10.post_attention_layernorm.weight torch.Size([8192])
+model.layers.11.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.11.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.11.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.11.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.11.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.11.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.11.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.11.input_layernorm.weight torch.Size([8192])
+model.layers.11.post_attention_layernorm.weight torch.Size([8192])
+model.layers.12.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.12.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.12.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.12.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.12.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.12.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.12.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.12.input_layernorm.weight torch.Size([8192])
+model.layers.12.post_attention_layernorm.weight torch.Size([8192])
+model.layers.13.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.13.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.13.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.13.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.13.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.13.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.13.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.13.input_layernorm.weight torch.Size([8192])
+model.layers.13.post_attention_layernorm.weight torch.Size([8192])
+model.layers.14.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.14.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.14.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.14.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.14.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.14.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.14.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.14.input_layernorm.weight torch.Size([8192])
+model.layers.14.post_attention_layernorm.weight torch.Size([8192])
+model.layers.15.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.15.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.15.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.15.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.15.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.15.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.15.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.15.input_layernorm.weight torch.Size([8192])
+model.layers.15.post_attention_layernorm.weight torch.Size([8192])
+model.layers.16.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.16.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.16.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.16.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.16.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.16.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.16.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.16.input_layernorm.weight torch.Size([8192])
+model.layers.16.post_attention_layernorm.weight torch.Size([8192])
+model.layers.17.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.17.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.17.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.17.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.17.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.17.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.17.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.17.input_layernorm.weight torch.Size([8192])
+model.layers.17.post_attention_layernorm.weight torch.Size([8192])
+model.layers.18.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.18.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.18.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.18.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.18.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.18.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.18.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.18.input_layernorm.weight torch.Size([8192])
+model.layers.18.post_attention_layernorm.weight torch.Size([8192])
+model.layers.19.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.19.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.19.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.19.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.19.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.19.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.19.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.19.input_layernorm.weight torch.Size([8192])
+model.layers.19.post_attention_layernorm.weight torch.Size([8192])
+model.layers.20.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.20.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.20.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.20.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.20.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.20.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.20.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.20.input_layernorm.weight torch.Size([8192])
+model.layers.20.post_attention_layernorm.weight torch.Size([8192])
+model.layers.21.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.21.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.21.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.21.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.21.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.21.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.21.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.21.input_layernorm.weight torch.Size([8192])
+model.layers.21.post_attention_layernorm.weight torch.Size([8192])
+model.layers.22.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.22.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.22.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.22.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.22.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.22.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.22.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.22.input_layernorm.weight torch.Size([8192])
+model.layers.22.post_attention_layernorm.weight torch.Size([8192])
+model.layers.23.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.23.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.23.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.23.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.23.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.23.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.23.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.23.input_layernorm.weight torch.Size([8192])
+model.layers.23.post_attention_layernorm.weight torch.Size([8192])
+model.layers.24.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.24.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.24.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.24.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.24.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.24.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.24.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.24.input_layernorm.weight torch.Size([8192])
+model.layers.24.post_attention_layernorm.weight torch.Size([8192])
+model.layers.25.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.25.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.25.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.25.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.25.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.25.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.25.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.25.input_layernorm.weight torch.Size([8192])
+model.layers.25.post_attention_layernorm.weight torch.Size([8192])
+model.layers.26.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.26.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.26.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.26.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.26.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.26.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.26.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.26.input_layernorm.weight torch.Size([8192])
+model.layers.26.post_attention_layernorm.weight torch.Size([8192])
+model.layers.27.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.27.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.27.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.27.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.27.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.27.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.27.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.27.input_layernorm.weight torch.Size([8192])
+model.layers.27.post_attention_layernorm.weight torch.Size([8192])
+model.layers.28.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.28.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.28.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.28.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.28.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.28.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.28.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.28.input_layernorm.weight torch.Size([8192])
+model.layers.28.post_attention_layernorm.weight torch.Size([8192])
+model.layers.29.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.29.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.29.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.29.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.29.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.29.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.29.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.29.input_layernorm.weight torch.Size([8192])
+model.layers.29.post_attention_layernorm.weight torch.Size([8192])
+model.layers.30.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.30.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.30.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.30.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.30.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.30.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.30.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.30.input_layernorm.weight torch.Size([8192])
+model.layers.30.post_attention_layernorm.weight torch.Size([8192])
+model.layers.31.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.31.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.31.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.31.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.31.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.31.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.31.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.31.input_layernorm.weight torch.Size([8192])
+model.layers.31.post_attention_layernorm.weight torch.Size([8192])
+model.layers.32.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.32.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.32.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.32.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.32.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.32.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.32.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.32.input_layernorm.weight torch.Size([8192])
+model.layers.32.post_attention_layernorm.weight torch.Size([8192])
+model.layers.33.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.33.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.33.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.33.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.33.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.33.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.33.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.33.input_layernorm.weight torch.Size([8192])
+model.layers.33.post_attention_layernorm.weight torch.Size([8192])
+model.layers.34.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.34.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.34.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.34.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.34.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.34.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.34.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.34.input_layernorm.weight torch.Size([8192])
+model.layers.34.post_attention_layernorm.weight torch.Size([8192])
+model.layers.35.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.35.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.35.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.35.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.35.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.35.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.35.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.35.input_layernorm.weight torch.Size([8192])
+model.layers.35.post_attention_layernorm.weight torch.Size([8192])
+model.layers.36.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.36.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.36.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.36.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.36.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.36.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.36.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.36.input_layernorm.weight torch.Size([8192])
+model.layers.36.post_attention_layernorm.weight torch.Size([8192])
+model.layers.37.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.37.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.37.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.37.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.37.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.37.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.37.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.37.input_layernorm.weight torch.Size([8192])
+model.layers.37.post_attention_layernorm.weight torch.Size([8192])
+model.layers.38.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.38.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.38.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.38.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.38.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.38.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.38.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.38.input_layernorm.weight torch.Size([8192])
+model.layers.38.post_attention_layernorm.weight torch.Size([8192])
+model.layers.39.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.39.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.39.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.39.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.39.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.39.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.39.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.39.input_layernorm.weight torch.Size([8192])
+model.layers.39.post_attention_layernorm.weight torch.Size([8192])
+model.layers.40.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.40.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.40.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.40.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.40.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.40.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.40.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.40.input_layernorm.weight torch.Size([8192])
+model.layers.40.post_attention_layernorm.weight torch.Size([8192])
+model.layers.41.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.41.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.41.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.41.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.41.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.41.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.41.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.41.input_layernorm.weight torch.Size([8192])
+model.layers.41.post_attention_layernorm.weight torch.Size([8192])
+model.layers.42.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.42.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.42.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.42.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.42.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.42.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.42.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.42.input_layernorm.weight torch.Size([8192])
+model.layers.42.post_attention_layernorm.weight torch.Size([8192])
+model.layers.43.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.43.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.43.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.43.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.43.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.43.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.43.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.43.input_layernorm.weight torch.Size([8192])
+model.layers.43.post_attention_layernorm.weight torch.Size([8192])
+model.layers.44.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.44.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.44.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.44.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.44.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.44.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.44.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.44.input_layernorm.weight torch.Size([8192])
+model.layers.44.post_attention_layernorm.weight torch.Size([8192])
+model.layers.45.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.45.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.45.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.45.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.45.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.45.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.45.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.45.input_layernorm.weight torch.Size([8192])
+model.layers.45.post_attention_layernorm.weight torch.Size([8192])
+model.layers.46.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.46.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.46.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.46.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.46.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.46.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.46.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.46.input_layernorm.weight torch.Size([8192])
+model.layers.46.post_attention_layernorm.weight torch.Size([8192])
+model.layers.47.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.47.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.47.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.47.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.47.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.47.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.47.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.47.input_layernorm.weight torch.Size([8192])
+model.layers.47.post_attention_layernorm.weight torch.Size([8192])
+model.layers.48.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.48.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.48.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.48.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.48.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.48.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.48.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.48.input_layernorm.weight torch.Size([8192])
+model.layers.48.post_attention_layernorm.weight torch.Size([8192])
+model.layers.49.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.49.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.49.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.49.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.49.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.49.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.49.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.49.input_layernorm.weight torch.Size([8192])
+model.layers.49.post_attention_layernorm.weight torch.Size([8192])
+model.layers.50.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.50.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.50.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.50.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.50.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.50.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.50.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.50.input_layernorm.weight torch.Size([8192])
+model.layers.50.post_attention_layernorm.weight torch.Size([8192])
+model.layers.51.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.51.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.51.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.51.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.51.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.51.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.51.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.51.input_layernorm.weight torch.Size([8192])
+model.layers.51.post_attention_layernorm.weight torch.Size([8192])
+model.layers.52.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.52.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.52.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.52.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.52.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.52.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.52.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.52.input_layernorm.weight torch.Size([8192])
+model.layers.52.post_attention_layernorm.weight torch.Size([8192])
+model.layers.53.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.53.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.53.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.53.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.53.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.53.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.53.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.53.input_layernorm.weight torch.Size([8192])
+model.layers.53.post_attention_layernorm.weight torch.Size([8192])
+model.layers.54.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.54.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.54.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.54.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.54.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.54.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.54.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.54.input_layernorm.weight torch.Size([8192])
+model.layers.54.post_attention_layernorm.weight torch.Size([8192])
+model.layers.55.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.55.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.55.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.55.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.55.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.55.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.55.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.55.input_layernorm.weight torch.Size([8192])
+model.layers.55.post_attention_layernorm.weight torch.Size([8192])
+model.layers.56.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.56.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.56.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.56.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.56.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.56.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.56.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.56.input_layernorm.weight torch.Size([8192])
+model.layers.56.post_attention_layernorm.weight torch.Size([8192])
+model.layers.57.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.57.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.57.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.57.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.57.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.57.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.57.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.57.input_layernorm.weight torch.Size([8192])
+model.layers.57.post_attention_layernorm.weight torch.Size([8192])
+model.layers.58.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.58.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.58.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.58.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.58.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.58.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.58.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.58.input_layernorm.weight torch.Size([8192])
+model.layers.58.post_attention_layernorm.weight torch.Size([8192])
+model.layers.59.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.59.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.59.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.59.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.59.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.59.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.59.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.59.input_layernorm.weight torch.Size([8192])
+model.layers.59.post_attention_layernorm.weight torch.Size([8192])
+model.layers.60.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.60.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.60.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.60.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.60.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.60.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.60.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.60.input_layernorm.weight torch.Size([8192])
+model.layers.60.post_attention_layernorm.weight torch.Size([8192])
+model.layers.61.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.61.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.61.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.61.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.61.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.61.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.61.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.61.input_layernorm.weight torch.Size([8192])
+model.layers.61.post_attention_layernorm.weight torch.Size([8192])
+model.layers.62.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.62.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.62.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.62.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.62.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.62.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.62.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.62.input_layernorm.weight torch.Size([8192])
+model.layers.62.post_attention_layernorm.weight torch.Size([8192])
+model.layers.63.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.63.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.63.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.63.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.63.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.63.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.63.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.63.input_layernorm.weight torch.Size([8192])
+model.layers.63.post_attention_layernorm.weight torch.Size([8192])
+model.layers.64.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.64.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.64.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.64.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.64.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.64.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.64.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.64.input_layernorm.weight torch.Size([8192])
+model.layers.64.post_attention_layernorm.weight torch.Size([8192])
+model.layers.65.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.65.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.65.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.65.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.65.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.65.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.65.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.65.input_layernorm.weight torch.Size([8192])
+model.layers.65.post_attention_layernorm.weight torch.Size([8192])
+model.layers.66.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.66.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.66.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.66.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.66.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.66.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.66.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.66.input_layernorm.weight torch.Size([8192])
+model.layers.66.post_attention_layernorm.weight torch.Size([8192])
+model.layers.67.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.67.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.67.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.67.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.67.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.67.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.67.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.67.input_layernorm.weight torch.Size([8192])
+model.layers.67.post_attention_layernorm.weight torch.Size([8192])
+model.layers.68.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.68.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.68.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.68.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.68.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.68.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.68.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.68.input_layernorm.weight torch.Size([8192])
+model.layers.68.post_attention_layernorm.weight torch.Size([8192])
+model.layers.69.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.69.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.69.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.69.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.69.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.69.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.69.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.69.input_layernorm.weight torch.Size([8192])
+model.layers.69.post_attention_layernorm.weight torch.Size([8192])
+model.layers.70.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.70.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.70.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.70.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.70.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.70.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.70.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.70.input_layernorm.weight torch.Size([8192])
+model.layers.70.post_attention_layernorm.weight torch.Size([8192])
+model.layers.71.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.71.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.71.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.71.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.71.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.71.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.71.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.71.input_layernorm.weight torch.Size([8192])
+model.layers.71.post_attention_layernorm.weight torch.Size([8192])
+model.layers.72.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.72.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.72.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.72.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.72.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.72.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.72.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.72.input_layernorm.weight torch.Size([8192])
+model.layers.72.post_attention_layernorm.weight torch.Size([8192])
+model.layers.73.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.73.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.73.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.73.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.73.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.73.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.73.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.73.input_layernorm.weight torch.Size([8192])
+model.layers.73.post_attention_layernorm.weight torch.Size([8192])
+model.layers.74.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.74.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.74.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.74.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.74.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.74.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.74.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.74.input_layernorm.weight torch.Size([8192])
+model.layers.74.post_attention_layernorm.weight torch.Size([8192])
+model.layers.75.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.75.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.75.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.75.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.75.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.75.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.75.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.75.input_layernorm.weight torch.Size([8192])
+model.layers.75.post_attention_layernorm.weight torch.Size([8192])
+model.layers.76.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.76.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.76.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.76.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.76.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.76.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.76.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.76.input_layernorm.weight torch.Size([8192])
+model.layers.76.post_attention_layernorm.weight torch.Size([8192])
+model.layers.77.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.77.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.77.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.77.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.77.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.77.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.77.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.77.input_layernorm.weight torch.Size([8192])
+model.layers.77.post_attention_layernorm.weight torch.Size([8192])
+model.layers.78.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.78.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.78.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.78.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.78.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.78.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.78.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.78.input_layernorm.weight torch.Size([8192])
+model.layers.78.post_attention_layernorm.weight torch.Size([8192])
+model.layers.79.self_attn.q_proj.weight torch.Size([8192, 8192])
+model.layers.79.self_attn.k_proj.weight torch.Size([1024, 8192])
+model.layers.79.self_attn.v_proj.weight torch.Size([1024, 8192])
+model.layers.79.self_attn.o_proj.weight torch.Size([8192, 8192])
+model.layers.79.mlp.gate_proj.weight torch.Size([28672, 8192])
+model.layers.79.mlp.up_proj.weight torch.Size([28672, 8192])
+model.layers.79.mlp.down_proj.weight torch.Size([8192, 28672])
+model.layers.79.input_layernorm.weight torch.Size([8192])
+model.layers.79.post_attention_layernorm.weight torch.Size([8192])
+model.norm.weight torch.Size([8192])
+lm_head.weight torch.Size([32000, 8192])
+use device  cpu
+loading calibdation data
+  0%|          | 0/258 [00:00<?, ?it/s]  0%|          | 1/258 [00:00<02:25,  1.76it/s]  1%|          | 2/258 [00:01<02:15,  1.89it/s]  2%|▏         | 4/258 [00:01<01:07,  3.76it/s]  2%|▏         | 5/258 [00:01<01:18,  3.22it/s]  2%|▏         | 6/258 [00:01<01:03,  3.95it/s]  3%|▎         | 7/258 [00:02<01:45,  2.38it/s]  3%|▎         | 8/258 [00:02<01:22,  3.02it/s]  3%|▎         | 9/258 [00:02<01:05,  3.83it/s]  4%|▍         | 11/258 [00:03<00:44,  5.52it/s]  5%|▍         | 12/258 [00:03<00:41,  5.90it/s]  5%|▌         | 13/258 [00:04<01:31,  2.69it/s]  5%|▌         | 14/258 [00:04<01:28,  2.75it/s]  6%|▌         | 15/258 [00:04<01:15,  3.22it/s]  6%|▌         | 16/258 [00:04<01:05,  3.69it/s]  7%|▋         | 18/258 [00:05<01:08,  3.50it/s]  8%|▊         | 20/258 [00:05<00:51,  4.63it/s]  8%|▊         | 21/258 [00:05<00:45,  5.23it/s]  9%|▊         | 22/258 [00:05<00:48,  4.85it/s]  9%|▉         | 24/258 [00:06<00:43,  5.41it/s] 10%|▉         | 25/258 [00:06<00:41,  5.66it/s] 10%|█         | 26/258 [00:06<00:54,  4.28it/s] 11%|█         | 28/258 [00:07<00:45,  5.07it/s] 11%|█         | 29/258 [00:07<00:46,  4.90it/s] 12%|█▏        | 31/258 [00:07<00:39,  5.80it/s] 12%|█▏        | 32/258 [00:07<00:47,  4.80it/s] 13%|█▎        | 33/258 [00:08<00:58,  3.86it/s] 13%|█▎        | 34/258 [00:08<01:02,  3.59it/s] 14%|█▎        | 35/258 [00:09<01:09,  3.19it/s] 14%|█▍        | 36/258 [00:09<01:21,  2.72it/s] 14%|█▍        | 37/258 [00:09<01:16,  2.89it/s] 15%|█▍        | 38/258 [00:10<01:10,  3.12it/s] 16%|█▌        | 40/258 [00:10<01:04,  3.36it/s] 16%|█▋        | 42/258 [00:10<00:45,  4.77it/s] 17%|█▋        | 43/258 [00:10<00:40,  5.35it/s] 17%|█▋        | 44/258 [00:11<00:39,  5.40it/s] 17%|█▋        | 45/258 [00:11<00:34,  6.09it/s] 18%|█▊        | 46/258 [00:11<00:33,  6.32it/s] 18%|█▊        | 47/258 [00:11<00:34,  6.07it/s] 19%|█▊        | 48/258 [00:11<00:38,  5.42it/s] 19%|█▉        | 49/258 [00:11<00:34,  6.01it/s] 19%|█▉        | 50/258 [00:12<00:52,  3.99it/s] 21%|██        | 53/258 [00:13<00:50,  4.07it/s] 21%|██        | 54/258 [00:13<00:48,  4.16it/s] 21%|██▏       | 55/258 [00:13<00:42,  4.79it/s] 22%|██▏       | 56/258 [00:13<00:49,  4.07it/s] 22%|██▏       | 57/258 [00:13<00:45,  4.43it/s] 22%|██▏       | 58/258 [00:14<00:50,  3.99it/s] 23%|██▎       | 59/258 [00:14<00:43,  4.53it/s] 23%|██▎       | 60/258 [00:14<00:47,  4.20it/s] 24%|██▎       | 61/258 [00:15<00:55,  3.52it/s] 24%|██▍       | 62/258 [00:15<01:01,  3.21it/s] 24%|██▍       | 63/258 [00:15<00:52,  3.69it/s] 25%|██▍       | 64/258 [00:15<00:43,  4.45it/s] 25%|██▌       | 65/258 [00:16<01:10,  2.75it/s] 26%|██▌       | 67/258 [00:16<00:44,  4.26it/s] 26%|██▋       | 68/258 [00:16<00:43,  4.36it/s] 27%|██▋       | 69/258 [00:17<00:44,  4.29it/s] 28%|██▊       | 71/258 [00:17<00:34,  5.46it/s] 28%|██▊       | 73/258 [00:17<00:27,  6.73it/s] 29%|██▊       | 74/258 [00:17<00:27,  6.72it/s] 29%|██▉       | 75/258 [00:17<00:32,  5.61it/s] 29%|██▉       | 76/258 [00:18<00:46,  3.95it/s] 30%|███       | 78/258 [00:18<00:31,  5.71it/s] 31%|███       | 79/258 [00:18<00:39,  4.53it/s] 31%|███       | 80/258 [00:19<00:50,  3.54it/s] 31%|███▏      | 81/258 [00:19<00:55,  3.21it/s] 32%|███▏      | 82/258 [00:19<00:45,  3.86it/s] 32%|███▏      | 83/258 [00:20<00:55,  3.14it/s] 33%|███▎      | 84/258 [00:20<00:52,  3.29it/s] 33%|███▎      | 85/258 [00:20<00:48,  3.57it/s] 33%|███▎      | 86/258 [00:21<00:44,  3.83it/s] 34%|███▎      | 87/258 [00:21<01:03,  2.69it/s] 34%|███▍      | 88/258 [00:22<01:05,  2.59it/s] 34%|███▍      | 89/258 [00:22<01:00,  2.79it/s] 35%|███▍      | 90/258 [00:22<01:01,  2.74it/s] 35%|███▌      | 91/258 [00:23<00:59,  2.82it/s] 36%|███▌      | 92/258 [00:23<00:49,  3.34it/s] 36%|███▌      | 93/258 [00:23<00:43,  3.80it/s] 36%|███▋      | 94/258 [00:23<00:51,  3.16it/s] 37%|███▋      | 95/258 [00:24<01:06,  2.45it/s] 37%|███▋      | 96/258 [00:24<00:53,  3.05it/s] 38%|███▊      | 97/258 [00:25<00:57,  2.81it/s] 38%|███▊      | 98/258 [00:25<00:47,  3.36it/s] 38%|███▊      | 99/258 [00:25<00:45,  3.46it/s] 39%|███▉      | 100/258 [00:25<00:43,  3.61it/s] 39%|███▉      | 101/258 [00:26<01:17,  2.04it/s] 40%|███▉      | 102/258 [00:27<01:06,  2.34it/s] 40%|████      | 104/258 [00:27<00:42,  3.59it/s] 41%|████      | 106/258 [00:27<00:35,  4.33it/s] 41%|████▏     | 107/258 [00:27<00:34,  4.33it/s] 42%|████▏     | 108/258 [00:28<00:49,  3.03it/s] 43%|████▎     | 111/258 [00:28<00:31,  4.72it/s] 43%|████▎     | 112/258 [00:28<00:32,  4.49it/s] 44%|████▍     | 113/258 [00:29<00:32,  4.47it/s] 44%|████▍     | 114/258 [00:29<00:29,  4.87it/s] 45%|████▍     | 115/258 [00:29<00:28,  5.08it/s] 45%|████▍     | 116/258 [00:30<00:39,  3.57it/s] 45%|████▌     | 117/258 [00:30<00:32,  4.30it/s] 46%|████▌     | 118/258 [00:30<00:30,  4.58it/s] 47%|████▋     | 120/258 [00:30<00:21,  6.39it/s] 47%|████▋     | 121/258 [00:30<00:20,  6.74it/s] 47%|████▋     | 122/258 [00:31<00:38,  3.56it/s] 48%|████▊     | 123/258 [00:31<00:41,  3.26it/s] 48%|████▊     | 124/258 [00:32<00:53,  2.48it/s] 48%|████▊     | 125/258 [00:33<01:24,  1.57it/s] 49%|████▉     | 126/258 [00:33<01:11,  1.85it/s] 49%|████▉     | 127/258 [00:34<01:16,  1.70it/s] 50%|█████     | 129/258 [00:34<00:46,  2.77it/s] 50%|█████     | 130/258 [00:34<00:42,  3.01it/s] 51%|█████     | 131/258 [00:35<00:39,  3.20it/s] 51%|█████     | 132/258 [00:35<00:37,  3.32it/s] 52%|█████▏    | 133/258 [00:36<00:46,  2.68it/s] 52%|█████▏    | 134/258 [00:36<00:46,  2.69it/s] 52%|█████▏    | 135/258 [00:36<00:37,  3.31it/s] 53%|█████▎    | 136/258 [00:36<00:37,  3.24it/s] 53%|█████▎    | 137/258 [00:37<00:31,  3.84it/s] 53%|█████▎    | 138/258 [00:37<00:27,  4.36it/s] 54%|█████▍    | 139/258 [00:37<00:24,  4.77it/s] 54%|█████▍    | 140/258 [00:37<00:23,  5.08it/s] 55%|█████▌    | 142/258 [00:37<00:17,  6.60it/s] 55%|█████▌    | 143/258 [00:37<00:16,  6.82it/s] 56%|█████▌    | 145/258 [00:38<00:35,  3.17it/s] 57%|█████▋    | 146/258 [00:39<00:40,  2.77it/s] 57%|█████▋    | 147/258 [00:39<00:36,  3.01it/s] 57%|█████▋    | 148/258 [00:40<00:37,  2.91it/s] 58%|█████▊    | 150/258 [00:40<00:30,  3.58it/s] 59%|█████▊    | 151/258 [00:40<00:25,  4.15it/s] 59%|█████▉    | 152/258 [00:40<00:29,  3.65it/s] 59%|█████▉    | 153/258 [00:41<00:25,  4.05it/s] 60%|█████▉    | 154/258 [00:41<00:30,  3.46it/s] 60%|██████    | 155/258 [00:41<00:26,  3.82it/s] 60%|██████    | 156/258 [00:41<00:22,  4.54it/s] 61%|██████    | 157/258 [00:42<00:28,  3.56it/s] 61%|██████    | 158/258 [00:42<00:24,  4.07it/s] 62%|██████▏   | 159/258 [00:43<00:43,  2.26it/s] 62%|██████▏   | 160/258 [00:43<00:33,  2.90it/s] 63%|██████▎   | 162/258 [00:44<00:37,  2.54it/s] 63%|██████▎   | 163/258 [00:44<00:33,  2.85it/s] 64%|██████▎   | 164/258 [00:44<00:27,  3.40it/s] 64%|██████▍   | 166/258 [00:45<00:23,  3.93it/s] 65%|██████▍   | 167/258 [00:45<00:26,  3.50it/s] 65%|██████▌   | 168/258 [00:45<00:29,  3.08it/s] 66%|██████▌   | 169/258 [00:46<00:32,  2.71it/s] 66%|██████▌   | 170/258 [00:46<00:32,  2.71it/s] 67%|██████▋   | 172/258 [00:47<00:22,  3.78it/s] 67%|██████▋   | 173/258 [00:47<00:21,  3.90it/s] 67%|██████▋   | 174/258 [00:47<00:29,  2.83it/s] 68%|██████▊   | 175/258 [00:48<00:42,  1.96it/s] 68%|██████▊   | 176/258 [00:49<00:36,  2.23it/s] 69%|██████▊   | 177/258 [00:49<00:30,  2.68it/s] 69%|██████▉   | 179/258 [00:49<00:20,  3.88it/s] 70%|██████▉   | 180/258 [00:50<00:38,  2.04it/s] 70%|███████   | 181/258 [00:50<00:30,  2.53it/s] 71%|███████   | 182/258 [00:51<00:39,  1.92it/s] 71%|███████▏  | 184/258 [00:52<00:36,  2.00it/s] 72%|███████▏  | 186/258 [00:52<00:24,  2.89it/s] 72%|███████▏  | 187/258 [00:53<00:28,  2.48it/s] 73%|███████▎  | 188/258 [00:53<00:24,  2.84it/s] 73%|███████▎  | 189/258 [00:54<00:23,  2.88it/s] 74%|███████▎  | 190/258 [00:54<00:21,  3.09it/s] 74%|███████▍  | 191/258 [00:54<00:19,  3.40it/s] 74%|███████▍  | 192/258 [00:55<00:23,  2.86it/s] 75%|███████▍  | 193/258 [00:55<00:21,  2.99it/s] 76%|███████▌  | 196/258 [00:55<00:13,  4.51it/s] 76%|███████▋  | 197/258 [00:56<00:15,  3.88it/s] 77%|███████▋  | 199/258 [00:56<00:12,  4.91it/s] 78%|███████▊  | 201/258 [00:56<00:10,  5.55it/s] 78%|███████▊  | 202/258 [00:56<00:12,  4.60it/s] 79%|███████▉  | 204/258 [00:57<00:09,  5.79it/s] 79%|███████▉  | 205/258 [00:57<00:08,  6.33it/s] 80%|████████  | 207/258 [00:57<00:06,  7.68it/s] 81%|████████  | 208/258 [00:57<00:07,  6.72it/s] 81%|████████▏ | 210/258 [00:57<00:05,  8.77it/s] 82%|████████▏ | 212/258 [00:58<00:05,  8.22it/s] 83%|████████▎ | 213/258 [00:58<00:06,  7.34it/s] 83%|████████▎ | 214/258 [00:58<00:07,  5.65it/s] 83%|████████▎ | 215/258 [00:58<00:09,  4.51it/s] 84%|████████▎ | 216/258 [00:59<00:09,  4.40it/s] 84%|████████▍ | 218/258 [00:59<00:07,  5.24it/s] 85%|████████▍ | 219/258 [01:00<00:15,  2.52it/s] 85%|████████▌ | 220/258 [01:00<00:12,  2.97it/s] 86%|████████▌ | 221/258 [01:01<00:12,  2.86it/s] 86%|████████▌ | 222/258 [01:01<00:12,  2.84it/s] 86%|████████▋ | 223/258 [01:01<00:12,  2.73it/s] 87%|████████▋ | 224/258 [01:03<00:25,  1.32it/s] 87%|████████▋ | 225/258 [01:04<00:24,  1.35it/s] 88%|████████▊ | 226/258 [01:04<00:18,  1.75it/s] 88%|████████▊ | 227/258 [01:04<00:14,  2.10it/s] 88%|████████▊ | 228/258 [01:05<00:13,  2.24it/s] 89%|████████▉ | 229/258 [01:06<00:20,  1.43it/s] 89%|████████▉ | 230/258 [01:06<00:14,  1.88it/s] 90%|████████▉ | 231/258 [01:06<00:14,  1.93it/s] 90%|████████▉ | 232/258 [01:07<00:11,  2.19it/s] 90%|█████████ | 233/258 [01:07<00:09,  2.66it/s] 91%|█████████ | 235/258 [01:07<00:06,  3.64it/s] 91%|█████████▏| 236/258 [01:08<00:06,  3.52it/s] 92%|█████████▏| 237/258 [01:08<00:05,  3.91it/s] 92%|█████████▏| 238/258 [01:08<00:04,  4.58it/s] 93%|█████████▎| 239/258 [01:08<00:04,  4.48it/s] 93%|█████████▎| 241/258 [01:08<00:02,  5.76it/s] 94%|█████████▍| 242/258 [01:09<00:05,  2.78it/s] 95%|█████████▍| 244/258 [01:09<00:03,  4.23it/s] 95%|█████████▍| 245/258 [01:10<00:03,  4.17it/s] 95%|█████████▌| 246/258 [01:10<00:02,  4.65it/s] 96%|█████████▌| 248/258 [01:10<00:01,  6.34it/s] 97%|█████████▋| 249/258 [01:11<00:02,  3.81it/s] 97%|█████████▋| 251/258 [01:11<00:01,  5.34it/s] 98%|█████████▊| 252/258 [01:11<00:01,  3.46it/s] 98%|█████████▊| 253/258 [01:12<00:01,  2.89it/s] 98%|█████████▊| 254/258 [01:12<00:01,  3.51it/s] 99%|█████████▉| 255/258 [01:12<00:01,  2.85it/s] 99%|█████████▉| 256/258 [01:13<00:00,  2.98it/s]100%|█████████▉| 257/258 [01:13<00:00,  2.96it/s]100%|██████████| 258/258 [01:13<00:00,  3.47it/s]100%|██████████| 258/258 [01:13<00:00,  3.50it/s]
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+dataset loading complete
+0 self_attn.q_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(5.0820, device='cuda:0', dtype=torch.float16) tensor(0.2966, device='cuda:0', dtype=torch.float16)
+tensor(0.0159, device='cuda:0', dtype=torch.float16) tensor(0.0005, device='cuda:0', dtype=torch.float16)
+tensor(0.0146, device='cuda:0', dtype=torch.float16) tensor(0.0005, device='cuda:0', dtype=torch.float16)
+tensor(0.0146, device='cuda:0', dtype=torch.float16) tensor(0.0005, device='cuda:0', dtype=torch.float16)
+tensor(0.0146, device='cuda:0', dtype=torch.float16) tensor(0.0005, device='cuda:0', dtype=torch.float16)
+0 self_attn.k_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(8.0938, device='cuda:0', dtype=torch.float16) tensor(0.6152, device='cuda:0', dtype=torch.float16)
+tensor(0.0256, device='cuda:0', dtype=torch.float16) tensor(0.0011, device='cuda:0', dtype=torch.float16)
+tensor(0.0237, device='cuda:0', dtype=torch.float16) tensor(0.0012, device='cuda:0', dtype=torch.float16)
+tensor(0.0215, device='cuda:0', dtype=torch.float16) tensor(0.0013, device='cuda:0', dtype=torch.float16)
+tensor(0.0237, device='cuda:0', dtype=torch.float16) tensor(0.0011, device='cuda:0', dtype=torch.float16)
+0 self_attn.v_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(0.4932, device='cuda:0', dtype=torch.float16) tensor(0.0087, device='cuda:0', dtype=torch.float16)
+tensor(0.0094, device='cuda:0', dtype=torch.float16) tensor(0.0006, device='cuda:0', dtype=torch.float16)
+tensor(0.0090, device='cuda:0', dtype=torch.float16) tensor(0.0006, device='cuda:0', dtype=torch.float16)
+tensor(0.0073, device='cuda:0', dtype=torch.float16) tensor(0.0007, device='cuda:0', dtype=torch.float16)
+tensor(0.0096, device='cuda:0', dtype=torch.float16) tensor(0.0006, device='cuda:0', dtype=torch.float16)
+0 self_attn.o_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(0.4336, device='cuda:0', dtype=torch.float16) tensor(0.0030, device='cuda:0', dtype=torch.float16)
+tensor(0.0078, device='cuda:0', dtype=torch.float16) tensor(0.0002, device='cuda:0', dtype=torch.float16)
+tensor(0.0056, device='cuda:0', dtype=torch.float16) tensor(0.0002, device='cuda:0', dtype=torch.float16)
+tensor(0.0098, device='cuda:0', dtype=torch.float16) tensor(0.0003, device='cuda:0', dtype=torch.float16)
+tensor(0.0103, device='cuda:0', dtype=torch.float16) tensor(0.0002, device='cuda:0', dtype=torch.float16)
+0 mlp.gate_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(1.5205, device='cuda:0', dtype=torch.float16) tensor(0.0218, device='cuda:0', dtype=torch.float16)
+tensor(0.0742, device='cuda:0', dtype=torch.float16) tensor(0.0024, device='cuda:0', dtype=torch.float16)
+tensor(0.0757, device='cuda:0', dtype=torch.float16) tensor(0.0024, device='cuda:0', dtype=torch.float16)
+tensor(0.0928, device='cuda:0', dtype=torch.float16) tensor(0.0027, device='cuda:0', dtype=torch.float16)
+tensor(0.0737, device='cuda:0', dtype=torch.float16) tensor(0.0024, device='cuda:0', dtype=torch.float16)
+Converged at iteration 10
+tensor(0.0094, device='cuda:0')
+tensor(0.0324, device='cuda:0')
+old_score: tensor(0.0025, device='cuda:0', dtype=torch.float16) new_score: tensor(0.0024, device='cuda:0', dtype=torch.float16)
+Not converged!
+Dual ascent finished!
+Validation after dual ascent:
+out_inf: tensor(1.5205, device='cuda:0', dtype=torch.float16) tensor(0.0218, device='cuda:0', dtype=torch.float16)
+tensor(0.0742, device='cuda:0', dtype=torch.float16) tensor(0.0024, device='cuda:0', dtype=torch.float16)
+tensor(0.0757, device='cuda:0', dtype=torch.float16) tensor(0.0024, device='cuda:0', dtype=torch.float16)
+tensor(0.0928, device='cuda:0', dtype=torch.float16) tensor(0.0027, device='cuda:0', dtype=torch.float16)
+tensor(0.0737, device='cuda:0', dtype=torch.float16) tensor(0.0024, device='cuda:0', dtype=torch.float16)
+0 mlp.up_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(0.9990, device='cuda:0', dtype=torch.float16) tensor(0.0193, device='cuda:0', dtype=torch.float16)
+tensor(0.0686, device='cuda:0', dtype=torch.float16) tensor(0.0024, device='cuda:0', dtype=torch.float16)
+tensor(0.0752, device='cuda:0', dtype=torch.float16) tensor(0.0023, device='cuda:0', dtype=torch.float16)
+tensor(0.0884, device='cuda:0', dtype=torch.float16) tensor(0.0026, device='cuda:0', dtype=torch.float16)
+tensor(0.0728, device='cuda:0', dtype=torch.float16) tensor(0.0024, device='cuda:0', dtype=torch.float16)
+Converged at iteration 10
+tensor(0.0114, device='cuda:0')
+tensor(0.0392, device='cuda:0')
+old_score: tensor(0.0024, device='cuda:0', dtype=torch.float16) new_score: tensor(0.0024, device='cuda:0', dtype=torch.float16)
+Not converged!
+Dual ascent finished!
+Validation after dual ascent:
+out_inf: tensor(0.9990, device='cuda:0', dtype=torch.float16) tensor(0.0193, device='cuda:0', dtype=torch.float16)
+tensor(0.0686, device='cuda:0', dtype=torch.float16) tensor(0.0024, device='cuda:0', dtype=torch.float16)
+tensor(0.0752, device='cuda:0', dtype=torch.float16) tensor(0.0023, device='cuda:0', dtype=torch.float16)
+tensor(0.0884, device='cuda:0', dtype=torch.float16) tensor(0.0026, device='cuda:0', dtype=torch.float16)
+tensor(0.0728, device='cuda:0', dtype=torch.float16) tensor(0.0024, device='cuda:0', dtype=torch.float16)
+0 mlp.down_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(0.9604, device='cuda:0', dtype=torch.float16) tensor(0.0059, device='cuda:0', dtype=torch.float16)
+tensor(0.0078, device='cuda:0', dtype=torch.float16) tensor(0.0002, device='cuda:0', dtype=torch.float16)
+tensor(0.0090, device='cuda:0', dtype=torch.float16) tensor(0.0003, device='cuda:0', dtype=torch.float16)
+tensor(0.0099, device='cuda:0', dtype=torch.float16) tensor(0.0003, device='cuda:0', dtype=torch.float16)
+tensor(0.0093, device='cuda:0', dtype=torch.float16) tensor(0.0003, device='cuda:0', dtype=torch.float16)
+layer 0 done
+1 self_attn.q_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(6.8867, device='cuda:0', dtype=torch.float16) tensor(0.6411, device='cuda:0', dtype=torch.float16)
+tensor(0.0498, device='cuda:0', dtype=torch.float16) tensor(0.0022, device='cuda:0', dtype=torch.float16)
+tensor(0.0498, device='cuda:0', dtype=torch.float16) tensor(0.0023, device='cuda:0', dtype=torch.float16)
+tensor(0.0449, device='cuda:0', dtype=torch.float16) tensor(0.0025, device='cuda:0', dtype=torch.float16)
+tensor(0.0488, device='cuda:0', dtype=torch.float16) tensor(0.0023, device='cuda:0', dtype=torch.float16)
+1 self_attn.k_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(8.0234, device='cuda:0', dtype=torch.float16) tensor(1.0674, device='cuda:0', dtype=torch.float16)
+tensor(0.0791, device='cuda:0', dtype=torch.float16) tensor(0.0046, device='cuda:0', dtype=torch.float16)
+tensor(0.0840, device='cuda:0', dtype=torch.float16) tensor(0.0047, device='cuda:0', dtype=torch.float16)
+tensor(0.0713, device='cuda:0', dtype=torch.float16) tensor(0.0051, device='cuda:0', dtype=torch.float16)
+tensor(0.0703, device='cuda:0', dtype=torch.float16) tensor(0.0047, device='cuda:0', dtype=torch.float16)
+1 self_attn.v_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(0.6968, device='cuda:0', dtype=torch.float16) tensor(0.0231, device='cuda:0', dtype=torch.float16)
+tensor(0.0237, device='cuda:0', dtype=torch.float16) tensor(0.0019, device='cuda:0', dtype=torch.float16)
+tensor(0.0250, device='cuda:0', dtype=torch.float16) tensor(0.0019, device='cuda:0', dtype=torch.float16)
+tensor(0.0233, device='cuda:0', dtype=torch.float16) tensor(0.0021, device='cuda:0', dtype=torch.float16)
+tensor(0.0402, device='cuda:0', dtype=torch.float16) tensor(0.0020, device='cuda:0', dtype=torch.float16)
+1 self_attn.o_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(1.0166, device='cuda:0', dtype=torch.float16) tensor(0.0081, device='cuda:0', dtype=torch.float16)
+tensor(0.0260, device='cuda:0', dtype=torch.float16) tensor(0.0015, device='cuda:0', dtype=torch.float16)
+tensor(0.0247, device='cuda:0', dtype=torch.float16) tensor(0.0015, device='cuda:0', dtype=torch.float16)
+tensor(0.0232, device='cuda:0', dtype=torch.float16) tensor(0.0016, device='cuda:0', dtype=torch.float16)
+tensor(0.0255, device='cuda:0', dtype=torch.float16) tensor(0.0014, device='cuda:0', dtype=torch.float16)
+Converged at iteration 10
+tensor(4.2745e-05, device='cuda:0')
+tensor(7.7167e-05, device='cuda:0')
+old_score: tensor(0.0015, device='cuda:0', dtype=torch.float16) new_score: tensor(0.0015, device='cuda:0', dtype=torch.float16)
+Not converged!
+Dual ascent finished!
+Validation after dual ascent:
+out_inf: tensor(1.0166, device='cuda:0', dtype=torch.float16) tensor(0.0081, device='cuda:0', dtype=torch.float16)
+tensor(0.0260, device='cuda:0', dtype=torch.float16) tensor(0.0015, device='cuda:0', dtype=torch.float16)
+tensor(0.0247, device='cuda:0', dtype=torch.float16) tensor(0.0015, device='cuda:0', dtype=torch.float16)
+tensor(0.0232, device='cuda:0', dtype=torch.float16) tensor(0.0016, device='cuda:0', dtype=torch.float16)
+tensor(0.0255, device='cuda:0', dtype=torch.float16) tensor(0.0014, device='cuda:0', dtype=torch.float16)
+1 mlp.gate_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(2.6660, device='cuda:0', dtype=torch.float16) tensor(0.0552, device='cuda:0', dtype=torch.float16)
+tensor(0.1899, device='cuda:0', dtype=torch.float16) tensor(0.0072, device='cuda:0', dtype=torch.float16)
+tensor(0.1841, device='cuda:0', dtype=torch.float16) tensor(0.0071, device='cuda:0', dtype=torch.float16)
+tensor(0.1626, device='cuda:0', dtype=torch.float16) tensor(0.0081, device='cuda:0', dtype=torch.float16)
+tensor(0.1748, device='cuda:0', dtype=torch.float16) tensor(0.0073, device='cuda:0', dtype=torch.float16)
+Converged at iteration 10
+tensor(0.0160, device='cuda:0')
+tensor(0.0549, device='cuda:0')
+old_score: tensor(0.0074, device='cuda:0', dtype=torch.float16) new_score: tensor(0.0071, device='cuda:0', dtype=torch.float16)
+Not converged!
+Dual ascent finished!
+Validation after dual ascent:
+out_inf: tensor(2.6660, device='cuda:0', dtype=torch.float16) tensor(0.0552, device='cuda:0', dtype=torch.float16)
+tensor(0.1899, device='cuda:0', dtype=torch.float16) tensor(0.0072, device='cuda:0', dtype=torch.float16)
+tensor(0.1841, device='cuda:0', dtype=torch.float16) tensor(0.0071, device='cuda:0', dtype=torch.float16)
+tensor(0.1626, device='cuda:0', dtype=torch.float16) tensor(0.0081, device='cuda:0', dtype=torch.float16)
+tensor(0.1748, device='cuda:0', dtype=torch.float16) tensor(0.0073, device='cuda:0', dtype=torch.float16)
+1 mlp.up_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(1.8467, device='cuda:0', dtype=torch.float16) tensor(0.0430, device='cuda:0', dtype=torch.float16)
+tensor(0.1670, device='cuda:0', dtype=torch.float16) tensor(0.0070, device='cuda:0', dtype=torch.float16)
+tensor(0.2017, device='cuda:0', dtype=torch.float16) tensor(0.0069, device='cuda:0', dtype=torch.float16)
+tensor(0.1538, device='cuda:0', dtype=torch.float16) tensor(0.0078, device='cuda:0', dtype=torch.float16)
+tensor(0.1646, device='cuda:0', dtype=torch.float16) tensor(0.0070, device='cuda:0', dtype=torch.float16)
+Converged at iteration 20
+tensor(0.0085, device='cuda:0')
+tensor(0.0354, device='cuda:0')
+old_score: tensor(0.0072, device='cuda:0', dtype=torch.float16) new_score: tensor(0.0068, device='cuda:0', dtype=torch.float16)
+Not converged!
+Dual ascent finished!
+Validation after dual ascent:
+out_inf: tensor(1.8467, device='cuda:0', dtype=torch.float16) tensor(0.0430, device='cuda:0', dtype=torch.float16)
+tensor(0.1670, device='cuda:0', dtype=torch.float16) tensor(0.0070, device='cuda:0', dtype=torch.float16)
+tensor(0.2017, device='cuda:0', dtype=torch.float16) tensor(0.0069, device='cuda:0', dtype=torch.float16)
+tensor(0.1538, device='cuda:0', dtype=torch.float16) tensor(0.0078, device='cuda:0', dtype=torch.float16)
+tensor(0.1646, device='cuda:0', dtype=torch.float16) tensor(0.0070, device='cuda:0', dtype=torch.float16)
+1 mlp.down_proj
+Pruning ...
+Validation after prune:
+out_inf: tensor(2.6914, device='cuda:0', dtype=torch.float16) tensor(0.0105, device='cuda:0', dtype=torch.float16)
+tensor(0.0346, device='cuda:0', dtype=torch.float16) tensor(0.0017, device='cuda:0', dtype=torch.float16)
+tensor(0.0366, device='cuda:0', dtype=torch.float16) tensor(0.0017, device='cuda:0', dtype=torch.float16)
+tensor(0.0325, device='cuda:0', dtype=torch.float16) tensor(0.0022, device='cuda:0', dtype=torch.float16)
+tensor(0.0357, device='cuda:0', dtype=torch.float16) tensor(0.0018, device='cuda:0', dtype=torch.float16)
+Traceback (most recent call last):
+  File "/h3cstore_ns/jcxie/LISA/nips2024/main.py", line 235, in <module>
+    main()
+  File "/h3cstore_ns/jcxie/LISA/nips2024/main.py", line 132, in main
+    prune_sparsegpt(args, model, tokenizer, device, prune_n=prune_n, prune_m=prune_m, dual_ascent=True)
+  File "/h3cstore_ns/jcxie/condaenv/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/h3cstore_ns/jcxie/LISA/nips2024/lib/prune.py", line 275, in prune_sparsegpt
+    gpts[name].dual_ascent2(beta = beta, alpha = alpha, min_iter=min_iter, theld= args.dual_theld)
+  File "/h3cstore_ns/jcxie/LISA/nips2024/lib/sparsegpt.py", line 784, in dual_ascent2
+    A = (beta + gama) * H_A + alpha * torch.eye(H_A.shape[0], device=H_A.device)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.06 GiB. GPU 
